@@ -52,6 +52,27 @@ public class StudentManagementSystem {
             System.out.println("Student not found.");
         }
     }
+    public static void updateStudent() {
+        System.out.print("Enter Student ID to update: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        for (Student student : students) {
+            if (student.getId() == id) {
+                System.out.print("Enter new name: ");
+                String name = scanner.nextLine();
+                System.out.print("Enter new department: ");
+                String department = scanner.nextLine();
+                System.out.print("Enter new CGPA: ");
+                double cgpa = scanner.nextDouble();
+                student.setName(name);
+                student.setDepartment(department);
+                student.setCgpa(cgpa);
+                System.out.println("Student updated successfully!");
+                return;
+            }
+        }
+        System.out.println("Student not found!");
+    }
     public static void main(String[] args) {
         while (true) {
             System.out.println("\n================================");
@@ -61,7 +82,8 @@ public class StudentManagementSystem {
             System.out.println("2. View Students");
             System.out.println("3. Search Student");
             System.out.println("4. Delete Student");
-            System.out.println("5. Exit");
+            System.out.println("5. Update");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             switch (choice) {
@@ -78,6 +100,9 @@ public class StudentManagementSystem {
                     deleteStudent();
                     break;
                 case 5:
+                	updateStudent();
+                	break;
+                case 6:
                     System.out.println("Exiting application...");
                     scanner.close();
                     return;

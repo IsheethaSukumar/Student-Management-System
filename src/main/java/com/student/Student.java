@@ -23,6 +23,15 @@ public class Student {
     public double getCgpa() {
         return cgpa;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+    public void setCgpa(double cgpa) {
+        this.cgpa = cgpa;
+    }
     @Override
     public String toString() {
         return "ID: " + id +
